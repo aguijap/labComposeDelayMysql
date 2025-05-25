@@ -1,0 +1,16 @@
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js application that serves a Hello World page.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^4.17.1",
+    "mysql2": "^3.14.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,82 @@
+/* ...existing code... */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    background: #c5bbd7;
+    max-width: 400px;
+    margin: 2em auto;
+    padding: 2em 2.5em 2em 2.5em;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(25, 118, 210, 0.08), 0 1.5px 4px rgba(0,0,0,0.04);
+}
+
+.main-header {
+    background-color: #192380;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    font-size: 1.7em;
+    margin-bottom: 1em;
+}
+
+#createUserBtn,
+#listUserBtn {
+    font-size: medium;
+}
+
+h1 {
+    color: #1976d2;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 2em;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.7em;
+    margin: 0.5em 0;
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.09s;
+}
+input[type="text"]:focus {
+    border-color: #1976d2;
+    outline: none;
+}
+
+button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.7em 1.5em;
+    font-size: 1em;
+    margin: 0.5em 0.3em 0.5em 0;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+}
+button:hover {
+    background: #99b5ce;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 1em;
+    }
+    h1 {
+        font-size: 1.3em;
+    }
+}
