@@ -60,6 +60,10 @@ app.get('/api/empleados', (req, res) => {
     });
 });
 
+app.get('/api/container-name', (req, res) => {
+    res.json({ containerName: process.env.HOSTNAME });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);

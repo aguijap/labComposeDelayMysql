@@ -36,3 +36,10 @@ document.getElementById('listUserBtn').addEventListener('click', async () => {
     userListContainer.innerHTML = html;
     userListContainer.style.display = 'block';
 });
+
+fetch('/api/container-name')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('containerName').textContent = data.containerName;
+    console.log('Nombre del contenedor:', data.containerName);
+  });
