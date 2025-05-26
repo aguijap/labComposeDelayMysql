@@ -1,18 +1,17 @@
 const readline = require('readline');
 const fetch = require('node-fetch'); // npm install node-fetch@2
+const casual = require('casual');    // npm install casual
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-function randomName() {
-  const nombres = ['Juan', 'Ana', 'Luis', 'Marta', 'Pedro', 'Lucía', 'Carlos', 'Sofía', 'Miguel', 'Elena'];
-  const apellidos = ['García', 'López', 'Martínez', 'Sánchez', 'Pérez', 'Gómez', 'Ruiz', 'Díaz', 'Moreno', 'Álvarez'];
-  return {
-    nombre: nombres[Math.floor(Math.random() * nombres.length)],
-    apellidos: apellidos[Math.floor(Math.random() * apellidos.length)]
-  };
+function generarDNI() {
+  const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+  const numero = Math.floor(Math.random() * 100000000);
+  const letra = letras[numero % 23];
+  return numero.toString().padStart(8, '0') + letra;
 }
 
 rl.question('¿Cuántos empleados quieres crear? ', async (answer) => {
@@ -24,16 +23,18 @@ rl.question('¿Cuántos empleados quieres crear? ', async (answer) => {
   }
 
   for (let i = 0; i < n; i++) {
-    const { nombre, apellidos } = randomName();
+    const nombre = casual.first_name;
+    const apellidos = generarDNI();
+    
     try {
       const res = await fetch('http://localhost:3000/api/empleados', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre, apellidos })
+        body: JSON.stringify({ nombre, apellidos})
       });
       const data = await res.json();
       if (res.ok) {
-        console.log(`Empleado creado: ${nombre} ${apellidos} (Edad: ${data.edad})`);
+        console.log(`Empleado creado: ${nombre} ${apellidos}, Edad: ${data.edad}`);
       } else {
         console.log(`Error al crear empleado: ${data.message}`);
       }
